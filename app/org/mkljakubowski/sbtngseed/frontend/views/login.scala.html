@@ -1,0 +1,45 @@
+@import controllers.routes.Assets
+@import org.mkljakubowski.sbtngseed.frontend.ApplicationConfiguration
+
+@(error: Option[String], config: ApplicationConfiguration)(implicit request: RequestHeader)
+
+<!DOCTYPE html>
+<html lang="en" manifest="">
+
+    <head>
+        <title>@config.title</title>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" type="text/css" href="@Assets.versioned("stylesheets/login.css")" />
+        <script src="@Assets.versioned("lib/jquery/jquery.min.js")"></script>
+    </head>
+
+    <body>
+        <div class="container">
+            <section id="content">
+                <form action="authenticate?path=@request.getQueryString("path")" method="post">
+                    <h1>@config.appName</h1>
+                    <div>
+                        <input type="text" placeholder="Username" required="" id="username" name="username" />
+                    </div>
+                    <div>
+                        <input type="password" placeholder="Password" required="" id="password" name="password" />
+                    </div>
+                    <div>
+                        <input type="submit" value="Log in">
+                    </div>
+                </form>
+                @error.map { e =>
+                    <div class="message">
+                        <div id="message">@e</div>
+                    </div>
+                }
+                <div class="logo">
+                    <img src="@Assets.versioned("images/acme.png")" alt="" />
+                </div>
+            </section>
+        </div>
+    </body>
+
+</html>

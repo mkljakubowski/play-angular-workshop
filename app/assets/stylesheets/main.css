@@ -1,0 +1,102 @@
+/* NAV */
+.navbar-main {
+    background-color: #51555e;
+    border-color: #51555e;
+}
+
+.navbar-brand img {
+    height: 100%;
+}
+
+.navbar-brand {
+    padding: 10px;
+}
+
+body {
+    padding-top: 70px;
+}
+
+textarea {
+    resize: none;
+}
+
+.ace_editor {
+    margin-bottom: 10px;
+}
+
+#condition {
+    height: 180px;
+}
+
+#script {
+    height: 638px;
+}
+
+.node {
+    padding: 5px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    background-color: white;
+}
+
+.node * {
+    cursor: default;
+}
+
+.node.full {
+    background-color: #a8c813;
+}
+
+.node .path {
+    overflow: hidden;
+    width: 100%;
+    display: inline-flex;
+    cursor: pointer;
+}
+
+.node .path.selected {
+    background-color: #fccc86 !important;
+}
+
+.node .description {
+    padding-bottom: 3px;
+}
+
+.schema-description {
+    max-height: 970px;
+    overflow-x: hidden;
+    overflow-y: scroll;
+}
+
+table.product-table>tbody>tr>td {
+    line-height: 32px;
+}
+
+table.scripts-table tr.applied {
+    background-color: #a8c813;
+}
+
+table.scripts-table tr.error {
+    background-color: #e5550f;
+}
+
+table.scripts-table>tbody>tr>td {
+    line-height: 32px;
+}
+
+table.statuses-table tr.error {
+    background-color: #e5550f;
+}
+
+.template {
+    display: none;
+}
+
+.col-lg-0 {
+    display: none;
+}
+
+.diff-dir iframe {
+    width: 100%;
+    height: 950px;
+}

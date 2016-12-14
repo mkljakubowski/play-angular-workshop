@@ -1,0 +1,27 @@
+# Routes
+# This file defines all application routes (Higher priority routes first)
+# ~~~~
+
+# Authentication
+GET         /login                       org.mkljakubowski.sbtngseed.frontend.controllers.AuthenticationController.login
+GET         /logout                      org.mkljakubowski.sbtngseed.frontend.controllers.AuthenticationController.logout
+POST        /authenticate                org.mkljakubowski.sbtngseed.frontend.controllers.AuthenticationController.authenticate
+
+# proxy
+GET         /njdsfndfjnd/:id             org.mkljakubowski.sbtngseed.frontend.controllers.UserController.get(id: Int)
+POST        /nfjgd                       org.mkljakubowski.sbtngseed.frontend.controllers.UserController.search()
+POST        /asdasd                      org.mkljakubowski.sbtngseed.frontend.controllers.UserController.findAll()
+POST        /in4entnrkgn                 org.mkljakubowski.sbtngseed.frontend.controllers.UserController.save
+
+# batch
+GET         /start-batch                 org.mkljakubowski.sbtngseed.frontend.controllers.DummyController.run()
+GET         /stop-batch                  org.mkljakubowski.sbtngseed.frontend.controllers.DummyController.stop()
+
+# Assets
+GET         /public/jsRoutes.js          org.mkljakubowski.sbtngseed.frontend.controllers.ApplicationController.javascriptRoutes
+GET         /public/jsMessages.js        org.mkljakubowski.sbtngseed.frontend.controllers.ApplicationController.messages
+GET         /public/*file                controllers.Assets.versioned(path = "/public", file)
+
+# Home Page
+GET         /*any                        org.mkljakubowski.sbtngseed.frontend.controllers.DummyController.indexAny(any : String)
+GET         /                            org.mkljakubowski.sbtngseed.frontend.controllers.DummyController.index
