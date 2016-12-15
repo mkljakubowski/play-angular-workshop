@@ -12,7 +12,7 @@ define(['angular', 'app'],
 
                 $scope.startCalc = function () {
                     $scope.statuses = [];
-                    dataStream = $websocket('ws://' + window.location.host + jsRoutes.org.mkljakubowski.sbtngseed.frontend.controllers.DummyController.run().url);
+                    dataStream = $websocket(jsRoutes.org.mkljakubowski.sbtngseed.frontend.controllers.DummyController.run().webSocketURL());
 
                     dataStream.onMessage(function (message) {
                         var msg = JSON.parse(message.data);
