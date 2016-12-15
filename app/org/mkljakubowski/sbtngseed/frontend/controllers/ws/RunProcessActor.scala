@@ -4,7 +4,8 @@ import akka.actor.{ Actor, ActorLogging, ActorRef, Terminated }
 import play.api.Logger
 import play.api.libs.json.Json
 
-import scala.concurrent.ExecutionContext
+import scala.concurrent.{ ExecutionContext, Future }
+import scala.util.Random
 
 class RunProcessActor()(implicit ec: ExecutionContext) extends Actor with ActorLogging {
 
@@ -19,7 +20,13 @@ class RunProcessActor()(implicit ec: ExecutionContext) extends Actor with ActorL
       stop = false
       statuses = Seq.empty
 
-      //...
+      Future {
+        while (!stop) {
+          self ! Random.nextInt().toLong
+          Thread.sleep(500)
+        }
+        running = false
+      }
 
     }
   }
