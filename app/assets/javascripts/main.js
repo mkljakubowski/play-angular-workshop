@@ -26,7 +26,7 @@ requirejs.config({
     }
 });
 
-require(['jquery', 'angular', 'app', 'config', 'bootstrap', 'controllers', 'directives', 'factories'], function($, angular, app, config) {
+require(['jquery', 'angular', 'app', 'config', 'bootstrap', 'controllers', 'directives', 'factories', 'services'], function($, angular, app, config) {
 
     app.config(['$routeProvider',
         function($routeProvider) {
