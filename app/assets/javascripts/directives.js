@@ -1,4 +1,5 @@
 define([
+    'directives/LtqInput'
 ], function () {
 
 });
