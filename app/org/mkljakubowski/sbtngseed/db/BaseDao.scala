@@ -39,11 +39,19 @@ trait BaseIdDao[Entity <: BaseIdEntity[Id], T <: BaseTable, Id] extends BaseDao[
 
   def search(obj: QueryRequest): Future[Seq[Entity]] = {
     val sth = table.baseTableRow.create_*.map(_.name)
-      .flatMap { columnName => obj.obj.value.find { _._1.toLowerCase == columnName.toLowerCase }.map(v => columnName -> v._2.as[String]) }
+      .flatMap { columnName =>
+        obj.obj.value.find {
+          _._1.toLowerCase == columnName.toLowerCase
+        }.map(v => columnName -> v._2)
+      }
     table.filter { r =>
       sth.foldLeft(LiteralColumn(true): Rep[Boolean]) {
         case (a, (name, value)) =>
-          a && r.column[String](name.toUpperCase) === value
+          value.asOpt[String].map { v =>
+            a && r.column[String](name.toUpperCase) === v
+          }.getOrElse {
+            a && r.column[Int](name.toUpperCase).===(value.as[Int])
+          }
       }
     }.drop(obj.skip).take(obj.take).result.invokeAction
   }
