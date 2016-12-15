@@ -1,0 +1,5 @@
+define([
+    'factory/User'
+], function () {
+
+});
