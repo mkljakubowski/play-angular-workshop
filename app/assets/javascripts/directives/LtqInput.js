@@ -1,19 +1,22 @@
 define(['angular', 'app'],
     function (angular, app) {
-        app.directive('ltqInput', function () {
-            let controller = ['$scope', function ($scope) {
-                $scope.id = Math.random().toString(36).substring(7);
-            }];
+        function ltqInputCtrl($scope) {
+            const ctrl = this;
 
-            return {
-                restrict: 'E',
-                templateUrl: '/public/javascripts/templates/ltqInput.html',
-                controller: controller,
-                scope: {
-                    ngModel: '=',
-                    type: '@',
-                    name: '@'
-                }
+            ctrl.id = $scope.$id;
+            $('[data-toggle="tooltip"]').tooltip();
+        }
+
+        app.component('ltqInput', {
+            require: {
+                form: "^form"
+            },
+            restrict: 'E',
+            templateUrl: '/public/javascripts/templates/ltqInput.html',
+            controller: ltqInputCtrl,
+            bindings: {
+                ngModel: '=',
+                name: '@'
             }
         });
     }
