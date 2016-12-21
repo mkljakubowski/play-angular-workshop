@@ -1,6 +1,7 @@
 define(['angular', '../app'],
     function (angular, app) {
         app.factory('User', function ($http) {
+
             function User(first, last) {
                 this.firstName = first;
                 this.lastName = last;
@@ -12,7 +13,7 @@ define(['angular', '../app'],
                     this
                 )
             };
-
+ 
             return User;
         });
     }

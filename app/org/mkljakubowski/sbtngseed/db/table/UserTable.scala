@@ -12,8 +12,9 @@ trait UserTable
 
     def firstName = column[String]("FIRSTNAME")
     def lastName = column[String]("LASTNAME")
+    def age = column[Int]("AGE")
 
-    def * = (id, firstName, lastName) <> ((UserRow.apply _).tupled, UserRow.unapply)
+    def * = (id, firstName, lastName, age) <> ((UserRow.apply _).tupled, UserRow.unapply)
   }
 
 }

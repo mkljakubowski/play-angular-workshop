@@ -1,15 +1,12 @@
 define(['angular', 'app'],
     function (angular, app) {
-        app.controller('AddUserCtrl', ['$scope', '$http',
-            function ($scope, $http) {
+        app.controller('AddUserCtrl', ['$scope', '$http', 'User',
+            function ($scope, $http, User) {
 
-                $scope.user = {};
+                $scope.user = new User();
 
                 $scope.save = function () {
-                    $http.post(
-                        jsRoutes.org.mkljakubowski.sbtngseed.frontend.controllers.UserController.save().url,
-                        $scope.user
-                    ).then(function successCallback(response) {
+                    $scope.user.save().then(function successCallback(response) {
                         $scope.success = 'Saved';
                         $scope.error = undefined;
                     }, function errorCallback(response) {
