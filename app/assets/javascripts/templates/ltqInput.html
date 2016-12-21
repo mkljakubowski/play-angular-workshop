@@ -2,7 +2,7 @@
     <div class="form-group">
         <label for="{{$ctrl.id}}" class="col-sm-2 control-label">{{$ctrl.name}}</label>
         <div class="col-sm-10">
-            <input class="form-control" id="{{$ctrl.id}}" type="text"
+            <input class="form-control" id="{{$ctrl.id}}" type="{{$ctrl.type}}"
                    placeholder="{{$ctrl.name}}" ng-model="$ctrl.ngModel" name="{{$ctrl.id}}">
         </div>
     </div>

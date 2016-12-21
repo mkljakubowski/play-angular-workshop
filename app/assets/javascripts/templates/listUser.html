@@ -12,6 +12,12 @@
         <div class="col-lg-2 form-group">
             <input type="text" ng-model="req.obj.lastName" class="form-control">
         </div>
+        <div class="col-lg-1 text-right">
+            <h5>Age:</h5>
+        </div>
+        <div class="col-lg-2 form-group">
+            <input type="number" ng-model="req.obj.age" class="form-control">
+        </div>
         <div class="col-lg-3">
             <button class="btn btn-default" ng-click="search()">Search</button>
         </div>
@@ -23,12 +29,14 @@
                     <th>Index</th>
                     <th>First Name</th>
                     <th>Last Name</th>
+                    <th>Age</th>
                     <th></th>
                 </tr>
                 <tr ng-repeat="user in users">
                     <td>{{$index + 1 + req.skip}}</td>
                     <td>{{user.firstName}}</td>
                     <td>{{user.lastName}}</td>
+                    <td>{{user.age}}</td>
                     <td>
                         <span type="button" class="btn btn-default" aria-label="Left Align">
                             <a class="glyphicon glyphicon-pencil" aria-hidden="true" href="/user/edit/{{user.id}}"></a>

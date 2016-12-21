@@ -23,6 +23,6 @@ class UserDao(
   lazy val saveQuery = table returning table.map(_.id)
   override implicit val tt = implicitly[BaseTypedType[Int]]
 
-  // table.schema.createStatements.foreach(println)
+  //  table.schema.createStatements.foreach(println)
 
 }

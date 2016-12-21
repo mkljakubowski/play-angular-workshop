@@ -16,6 +16,7 @@ define(['angular', 'app'],
             controller: ltqInputCtrl,
             bindings: {
                 ngModel: '=',
+                type: '@',
                 name: '@'
             }
         });
